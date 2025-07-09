@@ -1,0 +1,519 @@
+<mvc:View controllerName="comxcaretrepcot.comxcaretrepcot.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:uiTable="sap.ui.table">
+    <Page id="page">
+    <f:DynamicPage id="dynamicPageMain" showFooter="false" fitContent="false"> 
+        <f:header>
+                <f:DynamicPageHeader id="dynamicPageHeaderMain">
+                    <HBox id="hboxFilterMain" wrap="Wrap" alignItems="Start" justifyContent="Start">
+                        <VBox id="vboxFilterFechaCotizacion" width="220px" class="sapUiSmallMarginBegin" visible="{visibility>/vboxFilterFechaCotizacion}">
+                            <Label id="labelFechaCotizacion" text="{i18n>filterFechaCotizacion}"/>
+                            <!--<DatePicker id="dpFechaCotizacion" width="100%" />-->
+                            <DateRangeSelection id="dpFechaCotizacion" width="100%" delimiter=" - " />
+                        </VBox>
+                        <VBox id="vboxFilterProyecto" width="220px" class="sapUiSmallMarginBegin" visible="{visibility>/vboxFilterProyecto}">
+                            <Label id="labelProyecto" text="{i18n>filterProyecto}"/>
+                            <MultiInput id="inputNombreProyecto"
+                                showValueHelp="true"
+                                valueHelpRequest="onValueHelpRequest"
+                                showSuggestion="true"
+                                suggest="onSuggestFilters"
+                                tokens="{path: 'multiSelect>/inputNombreProyecto', templateShareable: false}"
+                                tokenUpdate="onTokenUpdate">
+                                <tokens>
+                                    <Token text="{multiSelect>}" key="{multiSelect>}" />
+                                </tokens>
+                            </MultiInput>
+                        </VBox>
+                        <VBox id="vboxFilterCotizacion" width="220px" class="sapUiSmallMarginBegin" visible="{visibility>/vboxFilterCotizacion}">
+                            <Label id="labelCotizacion" text="{i18n>filterCotizacion}"/>
+                            <MultiInput id="inputCotizacion"
+                                showValueHelp="true"
+                                valueHelpRequest="onValueHelpRequest"
+                                showSuggestion="true"
+                                suggest="onSuggestFilters"
+                                tokens="{path: 'multiSelect>/inputCotizacion', templateShareable: false}"
+                                tokenUpdate="onTokenUpdate">
+                                <tokens>
+                                    <Token text="{multiSelect>}" key="{multiSelect>}" />
+                                </tokens>
+                            </MultiInput>
+                        </VBox>
+                        <VBox id="vboxFilterPedidoXdifica" width="220px" class="sapUiSmallMarginBegin" visible="{visibility>/vboxFilterPedidoXdifica}">
+                            <Label id="labelPedidoXdifica" text="{i18n>filterPedidoXdifica}"/>
+                            <MultiInput id="inputPedidoXdifica"
+                                showValueHelp="true"
+                                valueHelpRequest="onValueHelpRequest"
+                                showSuggestion="true"
+                                suggest="onSuggestFilters"
+                                tokens="{path: 'multiSelect>/inputPedidoXdifica', templateShareable: false}"
+                                tokenUpdate="onTokenUpdate">
+                                <tokens>
+                                    <Token text="{multiSelect>}" key="{multiSelect>}" />
+                                </tokens>
+                            </MultiInput>
+                        </VBox>
+                        <VBox id="vboxFilterProveedor" width="220px" class="sapUiSmallMarginBegin" visible="{visibility>/vboxFilterProveedor}">
+                            <Label id="labelProveedor" text="{i18n>filterProveedor}"/>
+                            <MultiInput id="inputProveedor"
+                                showValueHelp="true"
+                                valueHelpRequest="onValueHelpRequest"
+                                showSuggestion="true"
+                                suggest="onSuggestFilters"
+                                tokens="{path: 'multiSelect>/inputProveedor', templateShareable: false}"
+                                tokenUpdate="onTokenUpdate">
+                                <tokens>
+                                    <Token text="{multiSelect>}" key="{multiSelect>}" />
+                                </tokens>
+                            </MultiInput>
+                        </VBox>
+                        <VBox id="vboxFilterMaterial" width="220px" class="sapUiSmallMarginBegin" visible="{visibility>/vboxFilterMaterial}">
+                            <Label id="labelMaterial" text="{i18n>filterMaterial}"/>
+                            <MultiInput id="inputMaterial"
+                                showValueHelp="true"
+                                valueHelpRequest="onValueHelpRequest"
+                                showSuggestion="true"
+                                suggest="onSuggestFilters"
+                                tokens="{path: 'multiSelect>/inputMaterial', templateShareable: false}"
+                                tokenUpdate="onTokenUpdate">
+                                <tokens>
+                                    <Token text="{multiSelect>}" key="{multiSelect>}" />
+                                </tokens>
+                            </MultiInput>
+                        </VBox>
+                        <VBox id="vboxFilterCategoria" width="220px" class="sapUiSmallMarginBegin" visible="{visibility>/vboxFilterCategoria}">
+                            <Label id="labelCategoria" text="{i18n>filterCategoria}"/>
+                            <MultiInput id="inputCategoria"
+                                showValueHelp="true"
+                                valueHelpRequest="onValueHelpRequest"
+                                showSuggestion="true"
+                                suggest="onSuggestFilters"
+                                tokens="{path: 'multiSelect>/inputCategoria', templateShareable: false}"
+                                tokenUpdate="onTokenUpdate">
+                                <tokens>
+                                    <Token text="{multiSelect>}" key="{multiSelect>}" />
+                                </tokens>
+                            </MultiInput>
+                        </VBox>
+                        <VBox id="vboxFilterFamilia" width="220px" class="sapUiSmallMarginBegin" visible="{visibility>/vboxFilterFamilia}">
+                            <Label id="labelFamilia" text="{i18n>filterFamilia}"/>
+                            <MultiInput id="inputFamilia"
+                                showValueHelp="true"
+                                valueHelpRequest="onValueHelpRequest"
+                                showSuggestion="true"
+                                suggest="onSuggestFilters"
+                                tokens="{path: 'multiSelect>/inputFamilia', templateShareable: false}"
+                                tokenUpdate="onTokenUpdate">
+                                <tokens>
+                                    <Token text="{multiSelect>}" key="{multiSelect>}" />
+                                </tokens>
+                            </MultiInput>
+                        </VBox>
+                        <VBox id="vboxFilterMarca" width="220px" class="sapUiSmallMarginBegin" visible="{visibility>/vboxFilterMarca}">
+                            <Label id="labelMarca" text="{i18n>filterMarca}"/>
+                            <MultiInput id="inputMarca"
+                                showValueHelp="true"
+                                valueHelpRequest="onValueHelpRequest"
+                                showSuggestion="true"
+                                suggest="onSuggestFilters"
+                                tokens="{path: 'multiSelect>/inputMarca', templateShareable: false}"
+                                tokenUpdate="onTokenUpdate">
+                                <tokens>
+                                    <Token text="{multiSelect>}" key="{multiSelect>}" />
+                                </tokens>
+                            </MultiInput>
+                        </VBox>
+                        <VBox id="vboxFilterModelo" width="220px" class="sapUiSmallMarginBegin" visible="{visibility>/vboxFilterModelo}">
+                            <Label id="labelModelo" text="{i18n>filterModelo}"/>
+                            <MultiInput id="inputModelo"
+                                showValueHelp="true"
+                                valueHelpRequest="onValueHelpRequest"
+                                showSuggestion="true"
+                                suggest="onSuggestFilters"
+                                tokens="{path: 'multiSelect>/inputModelo', templateShareable: false}"
+                                tokenUpdate="onTokenUpdate">
+                                <tokens>
+                                    <Token text="{multiSelect>}" key="{multiSelect>}" />
+                                </tokens>
+                            </MultiInput>
+                        </VBox>
+                        <VBox id="vboxFilterDivision" width="220px" class="sapUiSmallMarginBegin" visible="{visibility>/vboxFilterDivision}">
+                            <Label id="labelDivision" text="{i18n>filterDivision}"/>
+                            <MultiInput id="inputDivision"
+                                showValueHelp="true"
+                                valueHelpRequest="onValueHelpRequest"
+                                showSuggestion="true"
+                                suggest="onSuggestFilters"
+                                tokens="{path: 'multiSelect>/inputDivision', templateShareable: false}"
+                                tokenUpdate="onTokenUpdate">
+                                <tokens>
+                                    <Token text="{multiSelect>}" key="{multiSelect>}" />
+                                </tokens>
+                            </MultiInput>
+                        </VBox>
+                        <VBox id="vboxFilterArea" width="220px" class="sapUiSmallMarginBegin" visible="{visibility>/vboxFilterArea}">
+                            <Label id="labelArea" text="{i18n>filterArea}"/>
+                            <MultiInput id="inputArea"
+                                showValueHelp="true"
+                                valueHelpRequest="onValueHelpRequest"
+                                showSuggestion="true"
+                                suggest="onSuggestFilters"
+                                tokens="{path: 'multiSelect>/inputArea', templateShareable: false}"
+                                tokenUpdate="onTokenUpdate">
+                                <tokens>
+                                    <Token text="{multiSelect>}" key="{multiSelect>}" />
+                                </tokens>
+                            </MultiInput>
+                        </VBox>
+                        <VBox id="vboxFilterUbicacion" width="220px" class="sapUiSmallMarginBegin" visible="{visibility>/vboxFilterUbicacion}">
+                            <Label id="labelUbicacion" text="{i18n>filterUbicacion}"/>
+                            <MultiInput id="inputUbicacion"
+                                showValueHelp="true"
+                                valueHelpRequest="onValueHelpRequest"
+                                showSuggestion="true"
+                                suggest="onSuggestFilters"
+                                tokens="{path: 'multiSelect>/inputUbicacion', templateShareable: false}"
+                                tokenUpdate="onTokenUpdate">
+                                <tokens>
+                                    <Token text="{multiSelect>}" key="{multiSelect>}" />
+                                </tokens>
+                            </MultiInput>
+                        </VBox>
+                        <VBox id="vboxFilterSubUbicacion" width="220px" class="sapUiSmallMarginBegin" visible="{visibility>/vboxFilterSubUbicacion}">
+                            <Label id="labelSubUbicacion" text="{i18n>filterSubUbicacion}"/>
+                            <MultiInput id="inputSubUbicacion"
+                                showValueHelp="true"
+                                valueHelpRequest="onValueHelpRequest"
+                                showSuggestion="true"
+                                suggest="onSuggestFilters"
+                                tokens="{path: 'multiSelect>/inputSubUbicacion', templateShareable: false}"
+                                tokenUpdate="onTokenUpdate">
+                                <tokens>
+                                    <Token text="{multiSelect>}" key="{multiSelect>}" />
+                                </tokens>
+                            </MultiInput>
+                        </VBox>
+                        <VBox id="vboxFilterRequerimiento" width="220px" class="sapUiSmallMarginBegin" visible="{visibility>/vboxFilterRequerimiento}">
+                            <Label id="labelRequerimiento" text="{i18n>filterRequerimiento}"/>
+                            <MultiInput id="inputRequerimiento"
+                                showValueHelp="true"
+                                valueHelpRequest="onValueHelpRequest"
+                                showSuggestion="true"
+                                suggest="onSuggestFilters"
+                                tokens="{path: 'multiSelect>/inputRequerimiento', templateShareable: false}"
+                                tokenUpdate="onTokenUpdate">
+                                <tokens>
+                                    <Token text="{multiSelect>}" key="{multiSelect>}" />
+                                </tokens>
+                            </MultiInput>
+                        </VBox>
+                    </HBox>
+                    <Toolbar id="toolbarMainFilters">
+                        <ToolbarSpacer id="toolbarSpacerMainFilters"/>
+                        <Button id="btnBuscar" text="{i18n>btnBuscar}" type="Emphasized" press="onSearchQuotation"/>
+                        <Button id="btnChangeFilters" text="{i18n>btnChangeFilters}" type="Default" press="onChangeFilters"/>
+                    </Toolbar>
+                </f:DynamicPageHeader>
+        </f:header>
+        
+        <f:content>
+                <uiTable:Table
+                    id="quotationTable"
+                    title="{= ${i18n>tableTitle} + ' (' + ${/listItems}.length + ')' }"
+                    rows="{/listItems}"
+                    selectionMode="None"
+                    columnHeaderVisible="true"
+                    width="auto"
+                    visibleRowCountMode="Auto">
+                    <uiTable:extension>
+                        <Toolbar id="toolBarTableButtons">
+                            <ToolbarSpacer id="toolbarSpacerTable"/>
+                            <!--<Text id="textTotal" text="{= ${i18n>footerTotalLabel} + ': $' + ${totals>/grandTotal} }"/>-->
+                            <Text
+                            id="textTotal"
+                            text="{parts: [
+                                    {path: 'i18n>footerTotalLabel'},
+                                    {path: 'totals>/grandTotal', formatter: '.formatter.formatNumberWithCommas'}
+                                ],
+                                formatter: '.formatter.formatTotalText'
+                            }"/>
+                            <Button icon="sap-icon://excel-attachment"
+                                    tooltip="Table Settings"
+                                    type="Transparent"
+                                    press="onDownloadExcel"
+                                    id="buttonDownloadExcel"/>
+                            <Button icon="sap-icon://action-settings"
+                                    tooltip="Table Settings"
+                                    type="Transparent"
+                                    press="onSettingsPress"
+                                    id="buttonAdaptTableFilters"/>
+                        </Toolbar>
+                    </uiTable:extension>
+                    <uiTable:columns>
+                        <uiTable:Column id="colIndBorrado" width="8.125rem" visible="{columnVisibility>/colIndBorrado}">
+                            <Label id="labelColIndBorrado" text="{i18n>colIndBorrado}"/>
+                            <uiTable:template>
+                                <Switch id="switchColIndBorrado" type="AcceptReject" state="{path: 'LOEKZ', formatter: '.formatter.xFlagToBool'}" enabled="false"/>
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colNombreProyecto" width="11.25rem" sortProperty="PROJECT_NAME" filterProperty="PROJECT_NAME" visible="{columnVisibility>/colNombreProyecto}">
+                            <Label id="labelColNombreProyecto" text="{i18n>colNombreProyecto}"/>
+                            <uiTable:template>
+                                <Text id="textColNombreProyecto" text="{PSPNR} / {PROJECT_NAME}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colFechaCotizacion" width="9.375rem" sortProperty="QUOTATION_DATE" filterProperty="QUOTATION_DATE" visible="{columnVisibility>/colFechaCotizacion}">
+                            <Label id="labelColFechaCotizacion" text="{i18n>colFechaCotizacion}"/>
+                            <uiTable:template>
+                                <Text id="textColFechaCotizacion" text="{QUOTATION_DATE}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colNumeroCotizacion" width="10rem" sortProperty="EBELN" filterProperty="EBELN" visible="{columnVisibility>/colNumeroCotizacion}">
+                            <Label id="labelColNumeroCotizacion" text="{i18n>colNumeroCotizacion}"/>
+                            <uiTable:template>
+                                <Text id="textColNumeroCotizacion" text="{EBELN}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colPosCotizacion" width="7.5rem" sortProperty="EBEL" filterProperty="EBEL" visible="{columnVisibility>/colPosCotizacion}">
+                            <Label id="labelColPosCotizacion" text="{i18n>colPosCotizacion}"/>
+                            <uiTable:template>
+                                <Text id="textColPosCotizacion" text="{EBEL}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colContrato" width="8.75rem" sortProperty="CONTRACT_NAME" filterProperty="CONTRACT_NAME" visible="{columnVisibility>/colContrato}">
+                            <Label id="labelColContrato" text="{i18n>colContrato}"/>
+                            <uiTable:template>
+                                <Text id="textColContrato" text="{CONTRACT_NAME}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colPedidoXdifica" width="8.75rem" sortProperty="QUOTATION_PED_XDIFICA" filterProperty="QUOTATION_PED_XDIFICA" visible="{columnVisibility>/colPedidoXdifica}">
+                            <Label id="labelColPedidoXdifica" text="{i18n>colPedidoXdifica}"/>
+                            <uiTable:template>
+                                <Text id="textColPedidoXdifica" text="{QUOTATION_PED_XDIFICA}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colProveedor" width="9.375rem" sortProperty="SUPPLIER_NAME" filterProperty="SUPPLIER_NAME" visible="{columnVisibility>/colProveedor}">
+                            <Label id="labelColProveedor" text="{i18n>colProveedor}"/>
+                            <uiTable:template>
+                                <Text id="textColProveedor" text="{SUPPLIER_NAME}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colCargo" width="6.25rem" sortProperty="QUOTATION_CHARGE" filterProperty="QUOTATION_CHARGE" visible="{columnVisibility>/colCargo}">
+                            <Label id="labelColCargo" text="{i18n>colCargo}"/>
+                            <uiTable:template>
+                                <Text id="textColCargo" text="{QUOTATION_CHARGE}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colEstatusRequerimiento" width="11.25rem" sortProperty="STATUS_DESC_ES" filterProperty="STATUS_DESC_ES" visible="{columnVisibility>/colEstatusRequerimiento}">
+                            <Label id="labelColEstatusRequerimiento" text="{i18n>colEstatusRequerimiento}"/>
+                            <uiTable:template>
+                                <Text id="textColEstatusRequerimiento" text="{STATUS_DESC_ES}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colNoMaterial" width="7.5rem" sortProperty="MATNR" filterProperty="MATNR" visible="{columnVisibility>/colNoMaterial}">
+                            <Label id="labelColNoMaterial" text="{i18n>colNoMaterial}"/>
+                            <uiTable:template>
+                                <Text id="textColNoMaterial" text="{MATNR}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colNombre" width="10rem" sortProperty="MATERIAL_NAME" filterProperty="MATERIAL_NAME" visible="{columnVisibility>/colNombre}">
+                            <Label id="labelColNombre" text="{i18n>colNombre}"/>
+                            <uiTable:template>
+                                <Text id="textColNombre" text="{MATERIAL_NAME}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colDescripcion" width="12.5rem" sortProperty="MATERIAL_DESC" filterProperty="MATERIAL_DESC" visible="{columnVisibility>/colDescripcion}">
+                            <Label id="labelColDescripcion" text="{i18n>colDescripcion}"/>
+                            <uiTable:template>
+                                <Text id="textColDescripcion" text="{MATERIAL_DESC}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colCantidadSolicitada" width="10rem" sortProperty="MENGE" filterProperty="MENGE" visible="{columnVisibility>/colCantidadSolicitada}">
+                            <Label id="labelColCantidadSolicitada" text="{i18n>colCantidadSolicitada}"/>
+                            <uiTable:template>
+                                <Text id="textColCantidadSolicitada" text="{MENGE}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colUnidadMedida" width="9.375rem" sortProperty="MEINS" filterProperty="MEINS" visible="{columnVisibility>/colUnidadMedida}">
+                            <Label id="labelColUnidadMedida" text="{i18n>colUnidadMedida}"/>
+                            <uiTable:template>
+                                <Text id="textColUnidadMedida" text="{MEINS}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colPrecioNeto" width="7.5rem" sortProperty="NETPR" filterProperty="NETPR" visible="{columnVisibility>/colPrecioNeto}">
+                            <Label id="labelColPrecioNeto" text="{i18n>colPrecioNeto}"/>
+                            <uiTable:template>
+                                <Text id="textColPrecioNeto" text="{path: 'NETPR', formatter: '.formatter.formatNumberWithCommas'}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colMoneda" width="6.875rem" sortProperty="QUOTATION_CHARGE" filterProperty="QUOTATION_CHARGE" visible="{columnVisibility>/colMoneda}">
+                            <Label id="labelColMoneda" text="{i18n>colMoneda}"/>
+                            <uiTable:template>
+                                <Text id="textColMoneda" text="{QUOTATION_CHARGE}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colTotal" width="7.5rem" sortProperty="TOTAL" filterProperty="TOTAL" visible="{columnVisibility>/colTotal}">
+                            <Label id="labelColTotal" text="{i18n>colTotal}"/>
+                            <uiTable:template>
+                                <Text id="textColTotal" text="{path: 'TOTAL', formatter: '.formatter.formatNumberWithCommas'}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colTipoCambio" width="8.125rem" sortProperty="QUOTATION_EXCHANGE_RATE" filterProperty="QUOTATION_EXCHANGE_RATE" visible="{columnVisibility>/colTipoCambio}">
+                            <Label id="labelColTipoCambio" text="{i18n>colTipoCambio}"/>
+                            <uiTable:template>
+                                <Text id="textColTipoCambio" text="{QUOTATION_EXCHANGE_RATE}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colMontoMN" width="7.5rem" sortProperty="TOTAL_AMOUNT_ITEM" filterProperty="TOTAL_AMOUNT_ITEM" visible="{columnVisibility>/colMontoMN}">
+                            <Label id="labelColMontoMN" text="{i18n>colMontoMN}"/>
+                            <uiTable:template>
+                                <Text id="textColMontoMN" text="{path: 'TOTAL_AMOUNT_ITEM', formatter: '.formatter.formatNumberWithCommas'}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colCantidadCotizada" width="10rem" sortProperty="KTMNG" filterProperty="KTMNG" visible="{columnVisibility>/colCantidadCotizada}">
+                            <Label id="labelColCantidadCotizada" text="{i18n>colCantidadCotizada}"/>
+                            <uiTable:template>
+                                <Text id="textColCantidadCotizada" text="{KTMNG}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colCantidadFaltante" width="10rem" sortProperty="MENGE_C" filterProperty="MENGE_C" visible="{columnVisibility>/colCantidadFaltante}">
+                            <Label id="labelColCantidadFaltante" text="{i18n>colCantidadFaltante}"/>
+                            <uiTable:template>
+                                <Text id="textColCantidadFaltante" text="{MENGE_C}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colCategoria" width="8.75rem" sortProperty="CATEGORY_DESC" filterProperty="CATEGORY_DESC" visible="{columnVisibility>/colCategoria}">
+                            <Label id="labelColCategoria" text="{i18n>colCategoria}"/>
+                            <uiTable:template>
+                                <Text id="textColCategoria" text="{CATEGORY_DESC}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colFamilia" width="8.75rem" sortProperty="FAMILY_DESC" filterProperty="FAMILY_DESC" visible="{columnVisibility>/colFamilia}">
+                            <Label id="labelColFamilia" text="{i18n>colFamilia}"/>
+                            <uiTable:template>
+                                <Text id="textColFamilia" text="{FAMILY_DESC}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colMarca" width="7.5rem" sortProperty="MAT_BRAND" filterProperty="MAT_BRAND" visible="{columnVisibility>/colMarca}">
+                            <Label id="labelColMarca" text="{i18n>colMarca}"/>
+                            <uiTable:template>
+                                <Text id="textColMarca" text="{MAT_BRAND}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colModelo" width="7.5rem" sortProperty="MAT_MODEL" filterProperty="MAT_MODEL" visible="{columnVisibility>/colModelo}">
+                            <Label id="labelColModelo" text="{i18n>colModelo}"/>
+                            <uiTable:template>
+                                <Text id="textColModelo" text="{MAT_MODEL}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colDimensiones" width="8.75rem" sortProperty="MAT_DIMENSIONS" filterProperty="MAT_DIMENSIONS" visible="{columnVisibility>/colDimensiones}">
+                            <Label id="labelColDimensiones" text="{i18n>colDimensiones}"/>
+                            <uiTable:template>
+                                <Text id="textColDimensiones" text="{MAT_DIMENSIONS}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colFFEGMFFEDI" width="10rem" sortProperty="REQ_FFE" filterProperty="REQ_FFE" visible="{columnVisibility>/colFFEGMFFEDI}">
+                            <Label id="labelColFFEGMFFEDI" text="{i18n>colFFEGMFFEDI}"/>
+                            <uiTable:template>
+                                <Text id="textColFFEGMFFEDI" text="{REQ_FFE}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colActivoFijo" width="7.5rem" visible="{columnVisibility>/colActivoFijo}">
+                            <Label id="labelColActivoFijo" text="{i18n>colActivoFijo}"/>
+                            <uiTable:template>
+                                <Switch id="switchColActivoFijo" type="AcceptReject" state="{path: 'MAT_FIXED_ASSET', formatter: '.formatter.xFlagToBool'}" enabled="false"/>
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colEstandar" width="7.5rem" visible="{columnVisibility>/colEstandar}">
+                            <Label id="labelColEstandar" text="{i18n>colEstandar}"/>
+                            <uiTable:template>
+                                <Switch id="switchColEstandar" type="AcceptReject" state="{path: 'MAT_STANDARD', formatter: '.formatter.xFlagToBool'}" enabled="false"/>
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colPatrimonio" width="7.5rem" visible="{columnVisibility>/colPatrimonio}">
+                            <Label id="labelColPatrimonio" text="{i18n>colPatrimonio}"/>
+                            <uiTable:template>
+                                <Switch id="switchColPatrimonio" type="AcceptReject" state="{path: 'MAT_PATRIMONIO', formatter: '.formatter.xFlagToBool'}" enabled="false"/>
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colEspeciales" width="7.5rem" visible="{columnVisibility>/colEspeciales}">
+                            <Label id="labelColEspeciales" text="{i18n>colEspeciales}"/>
+                            <uiTable:template>
+                                <Switch id="switchColEspeciales" type="AcceptReject" state="{path: 'MAT_SPECIAL', formatter: '.formatter.xFlagToBool'}" enabled="false"/>
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colDivision" width="8.75rem" sortProperty="REQ_DIVISION_DESC" filterProperty="REQ_DIVISION_DESC" visible="{columnVisibility>/colDivision}">
+                            <Label id="labelColDivision" text="{i18n>colDivision}"/>
+                            <uiTable:template>
+                                <Text id="textColDivision" text="{REQ_DIVISION_DESC}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colArea" width="8.75rem" sortProperty="REQ_AREA_DESC" filterProperty="REQ_AREA_DESC" visible="{columnVisibility>/colArea}">
+                            <Label id="labelColArea" text="{i18n>colArea}"/>
+                            <uiTable:template>
+                                <Text id="textColArea" text="{REQ_AREA_DESC}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colUbicacion" width="8.75rem" sortProperty="REQ_UBICA" filterProperty="REQ_UBICA" visible="{columnVisibility>/colUbicacion}">
+                            <Label id="labelColUbicacion" text="{i18n>colUbicacion}"/>
+                            <uiTable:template>
+                                <Text id="textColUbicacion" text="{REQ_UBICA}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colSubUbicacion" width="8.75rem" sortProperty="REQ_SUBUBICA" filterProperty="REQ_SUBUBICA" visible="{columnVisibility>/colSubUbicacion}">
+                            <Label id="labelColSubUbicacion" text="{i18n>colSubUbicacion}"/>
+                            <uiTable:template>
+                                <Text id="textColSubUbicacion" text="{REQ_SUBUBICA}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colSuministrador" width="8.75rem" sortProperty="REQ_SUMIN_DESC" filterProperty="REQ_SUMIN_DESC" visible="{columnVisibility>/colSuministrador}">
+                            <Label id="labelColSuministrador" text="{i18n>colSuministrador}"/>
+                            <uiTable:template>
+                                <Text id="textColSuministrador" text="{REQ_SUMIN_DESC}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colVista" width="8.75rem" sortProperty="REQ_VISTA_DESC" filterProperty="REQ_VISTA_DESC" visible="{columnVisibility>/colVista}">
+                            <Label id="labelColVista" text="{i18n>colVista}"/>
+                            <uiTable:template>
+                                <Text id="textColVista" text="{REQ_VISTA_DESC}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colNumeroRequerimiento" width="10rem" sortProperty="BANFN" filterProperty="BANFN" visible="{columnVisibility>/colNumeroRequerimiento}">
+                            <Label id="labelColNumeroRequerimiento" text="{i18n>colNumeroRequerimiento}"/>
+                            <uiTable:template>
+                                <Text id="textColNumeroRequerimiento" text="{BANFN}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colPosRequerimiento" width="10rem" sortProperty="BNFPO" filterProperty="BNFPO" visible="{columnVisibility>/colPosRequerimiento}">
+                            <Label id="labelColPosRequerimiento" text="{i18n>colPosRequerimiento}"/>
+                            <uiTable:template>
+                                <Text id="textColPosRequerimiento" text="{BNFPO}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colNota" width="8.75rem" sortProperty="TXZ02" filterProperty="TXZ02" visible="{columnVisibility>/colNota}">
+                            <Label id="labelColNota" text="{i18n>colNota}"/>
+                            <uiTable:template>
+                                <Text id="textColNota" text="{TXZ02}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colAutor" width="8.75rem" sortProperty="CREATION_NAME" filterProperty="CREATION_NAME" visible="{columnVisibility>/colAutor}">
+                            <Label id="labelColAutor" text="{i18n>colAutor}"/>
+                            <uiTable:template>
+                                <Text id="textColAutor" text="{CREATION_NAME}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                        <uiTable:Column id="colCreadoEl" width="8.75rem" sortProperty="ERDAT" filterProperty="ERDAT" visible="{columnVisibility>/colCreadoEl}">
+                            <Label id="labelColCreadoEl" text="{i18n>colCreadoEl}"/>
+                            <uiTable:template>
+                                <Text id="textColCreadoEl" text="{ERDAT}" />
+                            </uiTable:template>
+                        </uiTable:Column>
+                    </uiTable:columns>
+                </uiTable:Table>
+        </f:content>
+    </f:DynamicPage>
+    </Page>
+</mvc:View>
