@@ -87,6 +87,8 @@ sap.ui.define([
                 this._sQuotationReportServiceUrl = "https://experiencias-xcaret-parques-s-a-p-i-de-c-v--xc-btpdev-15aca4ac6.cfapps.us10-001.hana.ondemand.com/QuotationReport";
             } else if (currentUrl.includes("qas-btp")) {
                 this._sQuotationReportServiceUrl = "https://node.cfapps.us10-001.hana.ondemand.com/QuotationReport";
+            } else if (currentUrl.includes("prd")) {
+                this._sQuotationReportServiceUrl = "https://node-api-prd.cfapps.us10-001.hana.ondemand.com";
             }
 
             // Inicializa el modelo 'visibility' para controlar la visibilidad de los filtros
@@ -416,14 +418,16 @@ sap.ui.define([
                 items: {
                     path: "/options",
                     template: new sap.m.StandardListItem({
-                        title: "{text}",        // ← MATERIAL_NAME en inputMaterial
-                        description: "{key}",  // ← MATNR en inputMaterial
+                        title: "{text}",        
+                        description: "{key}"
+                        /*
                         selected: {
                             path: "text",
                             formatter: function (sText) {
                                 return aCurrentSelectedTokens.includes(sText);
                             }
                         }
+                        */
                     })
                 },
                 multiSelect: true, // Permite selección múltiple

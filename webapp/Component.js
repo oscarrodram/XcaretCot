@@ -26,6 +26,8 @@ sap.ui.define([
                 _sQuotationReportServiceUrl = "https://experiencias-xcaret-parques-s-a-p-i-de-c-v--xc-btpdev-15aca4ac6.cfapps.us10-001.hana.ondemand.com/QuotationReport";
             } else if (currentUrl.includes("qas-btp")) {
                 _sQuotationReportServiceUrl = "https://node.cfapps.us10-001.hana.ondemand.com/QuotationReport";
+            } else if (currentUrl.includes("prd")) {
+                _sQuotationReportServiceUrl = "https://node-api-prd.cfapps.us10-001.hana.ondemand.com";
             }
 
             // Fetch inicial al iniciar la app
